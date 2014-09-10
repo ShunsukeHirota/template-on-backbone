@@ -1,0 +1,20 @@
+@import "compass/css3";
+
+//-----------------------------------------------
+// The following html5-boilerplate styles should
+// probably be customized for each site
+//-----------------------------------------------
+body, select, input, textarea {
+	color: $font-color;
+	// Set your base font here, to apply evenly
+	font-family: 'Lucida Grande', 'segoe UI', 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN', 'メイリオ', Meiryo, Arial, sans-serif;
+}
+a {
+	@include unstyled-link;
+	cursor: pointer;
+}
+
+
+//-----------------------------------
+// Add your own custom styles below
+//-----------------------------------

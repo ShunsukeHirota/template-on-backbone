@@ -1,0 +1,758 @@
+html {
+	background-image: image-url("pc/common/bg/bg.jpg");
+}
+
+/*--------------------------------------------------
+* title area
+* --------------------------------------------------*/
+#title-wrap {
+	@include clearfix();
+}
+
+#aloe20th {
+	float: left;
+	$aloe20thImgPath: "pc/enquete/aloe20th.png";
+	background-image: image-url($aloe20thImgPath);
+	background-position: center top;
+	background-repeat: no-repeat;
+	width: image-width($aloe20thImgPath);
+	height: image-height($aloe20thImgPath);
+
+	div {
+		position: absolute;
+		letter-spacing: 0.1rem;
+		left: 140px;
+		top: 238px;
+		text-align: center;
+		@include adjust-font-size-to(13px, 0.9);
+	}
+}
+
+#lead {
+	float: right;
+	margin: 140px 67px 0 0;
+	@include backgroundImageBox("pc/enquete/lead-bg.png");
+	p {
+		@include adjust-font-size-to(14px, 1.8);
+		margin-top: -14px;
+	}
+}
+
+#steps {
+	@include backgroundImageBox("pc/enquete/step-bg.png");
+	margin: -60px auto 27px;
+	position: relative;
+	div,
+	a {
+		position: absolute;
+		top: 86px;
+		height: 94px;
+		margin: 0;
+		p {
+			text-align: center;
+			letter-spacing: 0.1rem;
+			margin-top: 57px;
+			@include adjust-font-size-to(16px, 1);
+			span {
+				display: inline;
+			}
+		}
+		
+	}
+	.step1 {
+		left: 0;
+		width: 216px;
+	}
+	.step2 {
+		left: 240px;
+		width: 220px;
+	}
+	.step3 {
+		left: 496px;
+		width: 218px;
+	}
+}
+
+#concept {
+	@include backgroundImageBox("pc/enquete/concept-bg.png");
+	p {
+		@include adjust-font-size-to(16px, 1.2);
+		text-align: center;
+		margin: 0 auto;
+		padding-top: 187px;
+	}
+}
+
+.arrow-down {
+	@include backgroundImageBox("pc/enquete/arrow-down.png");
+	margin: 0 auto 15px;
+}
+
+/*--------------------------------------------------
+* enquete area
+* --------------------------------------------------*/
+#questionnaire-area {
+	background-color: #FFF;
+	width: 920px;
+	margin: 0 auto 25px;
+	padding: 10px;
+	box-shadow: 0px 2px 20px 0 rgba(0, 0, 0, 0.1);
+	h1 {
+		@include backgroundImageBox("pc/enquete/step2-title-bg.png");
+		p {
+			font-size: 29px;
+			letter-spacing: 0.18rem;
+			text-align: center;
+			margin: 0 auto;
+			padding-top: 44px;
+			padding-left: 50px;
+		}
+	}
+
+	/* Present Area */
+	#present {
+		@include clearfix();
+		.present-info {
+			float: left;
+			text-align: center;
+			margin: 50px 0 0 50px;
+			h2 {
+				background: url('/assets/img/pc/enquete/step2-lead-bg.png') left bottom repeat-x;
+				@include adjust-font-size-to(25px, 1.2);
+				font-weight: bold;
+				margin: 0 auto 30px;
+				padding: 0 5px;
+			}
+			p {
+				margin: 0;
+			}
+		}
+		.present-image {
+			float: right;
+			margin-right: 27px;
+		}
+	}
+
+	/* Enquete Area */
+	#enquete {
+		padding: 0 50px;
+		/* UI Override */
+		.ui-state-default,
+		.ui-widget-content .ui-state-default,
+		.ui-widget-header .ui-state-default {
+			border: 2px solid $textGreen;
+			@include box-shadow(rgb(230, 229, 229) 3px 3px);
+			@include border-radius(6px);
+			margin-right: 10px;
+			.ui-button-text {
+				@include border-radius(6px);
+				@include adjust-font-size-to(18px, 1);
+				border: #FFF 2px solid;
+				padding: 15px 0;
+			}
+		}
+		.ui-button {
+
+		}
+	}
+	h3.question {
+		padding: 0 0 15px 0;
+		@include adjust-font-size-to(28px, 1.2);
+		letter-spacing: 0.24rem;
+		margin-top: 20px;
+		background: url(/assets/img/pc/enquete/question-separator.png) left bottom no-repeat;
+		span {
+			@include inline-block();
+			width: 90px;
+			height: 45px;
+			margin-top: -4px;
+			background: url(/assets/img/pc/enquete/question.png) 0 0 no-repeat;
+		}
+		@for $i from 1 through 5 {
+			$n: $i - 1;
+			.q#{$i} {
+				background-position: 0 ($n * -50) + px;
+			}
+		}
+	}
+
+	fieldset {
+		border: 0;
+		padding: 0;
+		display: block;
+		position: relative;
+		margin: 0 auto 40px;
+		/* スライダ */
+		.ui-slider {
+			margin: 49px auto 0;
+			cursor: pointer;
+		}
+		.ui-widget-content {
+			border: none;
+			@include backgroundImageBox("pc/enquete/slider-base.png");
+		}
+		.ui-slider-handle {
+			border: none !important;
+			margin-left: -16px;
+			box-shadow: none !important;
+			outline: none;
+			background: transparent url('/assets/img/pc/enquete/spoon.png') 0 0 no-repeat !important;
+			background-color: transparent;
+			width: 32px;
+			height: 110px;
+			top: -46px;
+			cursor: pointer;
+			div {
+				img {
+					display: none;
+				}
+			}
+		}
+
+		/* 人気ゾーン */
+		.avg {
+			@include backgroundImageBox("pc/enquete/popular-zone.png");
+			background-size: contain !important;
+			margin-left: -41px;
+			position: absolute;
+			top: -13px;
+			left: 0;
+			@include animations(popular, 3s, ease-in-out, infinite);
+		}
+		/* 現在選択中 */
+		#sweetness {
+			.selected {
+				@include backgroundImageBox("pc/enquete/mark-sweetness.png");
+				background-size: contain !important;
+			}
+		}
+		#strength {
+			.selected {
+				@include backgroundImageBox("pc/enquete/mark-strength.png");
+				background-size: contain !important;
+			}
+		}
+		.selected {
+			pointer-events: none;
+			position: absolute;
+			top: 65px;
+			left: 50%;
+			width: 70px !important;
+			height: 43px !important;
+			padding-top: 24px;
+			text-align: center;
+			margin-left: -35px;
+			p {
+				@include adjust-font-size-to(24px, 1.8);
+				color: $yellow;
+				text-align: center;
+				display: inline;
+			}
+			span {
+				color: $yellow;
+				@include adjust-font-size-to(16px, 1.8);
+				padding-left: 3px;
+			}
+		}
+		/* 人気ゾーン および スライダラベル位置 */
+		@for $i from 0 through 10 {
+			$n: $i * 10;
+			.avg#{$n} {
+				left: percentage($i / 10);
+			}
+		}
+		/* number */
+		.num {
+			position: relative;
+			height: 20px;
+			margin: 8px 35px 0;
+			li {
+				@include adjust-font-size-to(12px, 1);
+				color: $textGreen;
+				position: absolute;
+				width: 30px;
+				text-align: center;
+				margin-left: -15px;
+			}
+			@for $i from 0 through 10 {
+				.num#{$i} {
+					left: percentage($i / 10);
+				}
+			}
+		}
+
+		/* ボタン */
+		.button-set {
+			float: left;
+			label {
+				@include ease-out-quint($animationTime, 0, background);
+			}
+			.balloon {
+				@include inline-block();
+				@include transform-origin(0, 50%);
+				font-weight: bold;
+				width: 80px;
+				height: 72px;
+				background: url($imagePath + 'pc/enquete/q2-balloon.png') 0 0 no-repeat;
+				background-size: cover !important;
+				p {
+					text-align: center;
+					padding: 5px 0 0 9px;
+					@include adjust-font-size-to(20px, 1);
+				}
+			}
+			&.choiced {
+				.balloon {
+					@include animations(q2_balloon, 0.3s, ease-in-out, 1);
+					background-position: 0 -100px !important;
+					p {
+						color: $textGreen;
+					}
+				}
+			}
+		}
+	}
+
+	/* Q1. 好みの味は？ ---------- */
+	#sweetness-area {
+		@include backgroundImageBox("pc/enquete/base-sweetness.png");
+	}
+
+	#strength-area {
+		@include backgroundImageBox("pc/enquete/base-strength.png");
+	}
+
+	.q1-balloon {
+		@include backgroundImageBox("pc/enquete/q1-balloon.png");
+		margin: 0 auto;
+		margin-top: 9px;
+		p {
+			@include adjust-font-size-to(17px, 1);
+			text-align: center;
+			margin: 0;
+			padding-top: 19px;
+			span {
+				color: $textGreen;
+			}
+		}
+	}
+
+	/* Q2. 脂肪分は？ ---------- */
+	#fatcontent {
+		label {
+			width: 254px;
+		}
+	}
+	#fatcontent1-set {
+		margin-right: 50px;
+	}
+
+	/* Q3. 好みのアロエは？ ---------- */
+	#aloe {
+		label {
+			width: 136px;
+			.ui-button-text {
+				padding: 12px 0 !important;
+			}
+		}
+	}
+	#aloe1-set {
+		label {
+			width: 136px;
+		}
+		margin-right: 30px;
+	}
+	#aloe2-set {
+		margin-right: 30px;
+	}
+
+	/* Q4 求める後味は？ ---------- */
+	#aftertaste {
+		label {
+			width: 256px;
+		}
+	}
+	#aftertaste1-set {
+		margin-right: 50px;
+	}
+
+	/* Q5 どんな香りがいい？ ---------- */
+	#smell {
+		label {
+			width: 96px;
+			margin-right: 6px !important;
+			.ui-button-text {
+				letter-spacing: -0.12rem;
+			}
+		}
+		.balloon {
+			background: url($imagePath + 'pc/enquete/q2-balloon-s.png') 0 0 no-repeat;
+			width: 68px;
+			height: 64px;
+			p {
+				padding: 0 0 0 8px !important;
+			}
+		}
+		.button-set {
+			&.choiced {
+				.balloon {
+					background-position: 0 -83px !important;
+				}
+			}
+		}
+		
+	}
+	#smell1-set {
+		margin-right: 18px;
+	}
+	#smell2-set {
+		margin-right: 18px;
+	}
+	#smell3-set {
+		margin-right: 18px;
+	}
+
+	/* 送信ボタン */
+	#send-enquete-button {
+		margin: 20px auto 50px;
+		width: 312px;
+		height: 100px;
+		a {
+			display: block;
+			background: url($imagePath + 'pc/enquete/reply-button.png') 0 0 no-repeat;
+			width: 312px;
+			height: 100px;
+			@include ease-out-quint(140);
+			&:hover {
+				background: url($imagePath + 'pc/enquete/reply-button-on.png') 0 0 no-repeat !important;
+			}
+		}
+		.attention {
+			@include adjust-font-size-to(14px, 1);
+			text-align: center;
+			position: relative;
+			top: 95px;
+			display: none;
+		}
+		&.disabled {
+			background: url($imagePath + 'pc/enquete/reply-button-none.png') 0 0 no-repeat;
+			a {
+				display: none;
+				cursor: default;
+			}
+			.attention {
+				display: block;
+			}
+		}
+	}
+
+
+	/* ---------- 投稿済みエリア ---------- */
+	#finish-area,
+	#already-area {
+		display: none;
+		border: #e60012 2px solid;
+		padding: 25px;
+		margin: 20px 90px;
+		p {
+			text-align: center;
+			@include adjust-font-size-to(18px, 1.4);
+			color: #e60012;
+		}
+	}
+	&.already {
+		#finish-area {
+			display: block;
+		}
+		#present,
+		#enquete {
+			opacity: 0.5;
+		}
+		#send-enquete-button {
+			background: url($imagePath + 'pc/enquete/reply-button-already.png') 0 0 no-repeat !important;
+			.attention {
+				display: none !important;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------
+* Complete area
+* --------------------------------------------------*/
+#thanks {
+	float: right;
+	margin: 102px 70px 0 0;
+	width: 380px;
+	background: url($imagePath + 'pc/enquete/complete/thanks-bg.png') 0 100px no-repeat;
+	h1 {
+		font-size: 28px;
+		line-height: 1.4;
+		text-align: center;
+		margin: 0 auto 50px;
+		letter-spacing: 0.18rem;
+	}
+	p {
+		@include adjust-font-size-to(14px, 1);
+		text-align: center;
+	}
+}
+
+#complete-area {
+	background-color: #FFF;
+	margin-top: 20px;
+	padding: 30px 20px;
+	width: 900px;
+	box-shadow: 0px 2px 20px 0 rgba(0, 0, 0, 0.1);
+
+	#present-area {
+		@include backgroundImageBox("pc/enquete/complete/present-bg.png");
+		.message {
+			padding: 90px 0 15px 100px;
+			margin: 0;
+			@include adjust-font-size-to(16px, 1.24);
+			span {
+				color: $textGreen;
+			}
+		}
+		.closing {
+			background-color: $yellow;
+			margin: 0 auto;
+			width: 416px;
+			color: $textGreen;
+			text-align: center;
+			padding: 0.4rem 0;
+			@include adjust-font-size-to(18px, 1);
+			span {
+				font-weight: bold;
+			}
+		}
+	}
+
+	#already-area {
+		display: none;
+		border: #e60012 2px solid;
+		padding: 25px;
+		margin: 40px 90px 20px;
+		p {
+			text-align: center;
+			@include adjust-font-size-to(18px, 1.4);
+			color: #e60012;
+		}
+	}
+
+	#agreement {
+		text-align: center;
+		margin: 37px auto 15px;
+		#agreement-check {
+			@include inline-block();
+		}
+		.icheckbox_flat-red {
+			@include inline-block();
+			@include scale(0.82);
+		}
+		#agreement-link {
+			color: $textGreen;
+			border-bottom: 1px dotted $textGreen;
+			&:hover {
+				color: #005c25;
+				border-bottom: 1px dotted #005c25;
+			}
+		}
+	}
+
+	#reply-button-wrap {
+		margin: 0 auto 5px;
+		width: 312px;
+		height: 100px;
+		a {
+			display: block;
+			background: url($imagePath + 'pc/enquete/complete/reply-button.png') 0 0 no-repeat;
+			width: 312px;
+			height: 100px;
+			@include hide-text(right);
+			@include ease-out-quint(140);
+			&:hover {
+				background: url($imagePath + 'pc/enquete/complete/reply-button-on.png') 0 0 no-repeat !important;
+			}
+		}
+		&.disabled {
+			background: url($imagePath + 'pc/enquete/complete/reply-button-none.png') 0 0 no-repeat;
+			a {
+				display: none;
+				cursor: default;
+			}
+		}
+	}
+}
+
+.quit-button-wrap {
+	margin: 60px auto 5px;
+	width: 289px;
+	height: 64px;
+	a {
+		display: block;
+		background: url($imagePath + 'pc/enquete/complete/quit-button.png') 0 0 no-repeat;
+		width: 289px;
+		height: 64px;
+		@include hide-text(right);
+		@include ease-out-quint(140);
+		&:hover {
+			background: url($imagePath + 'pc/enquete/complete/quit-button-on.png') 0 0 no-repeat !important;
+		}
+	}
+}
+
+/*--------------------------------------------------
+* メールフォーム
+* --------------------------------------------------*/
+.cb-area-outer {
+	display: none;
+}
+
+.cb-area {
+	width: 780px;
+	background: url($imagePath + "pc/enquete/overlay-bg.png") 0 0 repeat;
+	padding: 30px 35px;
+	margin-bottom: 10px;
+	h3 {
+		font-size: 21px;
+		margin: 0 auto 26px;
+		text-align: center;
+		span {
+			display: block;
+			font-size: 32px;
+		}
+	}
+
+	.apply-wrap {
+		@include clearfix();
+		margin-bottom: 20px;
+		span {
+			float: left;
+			padding-top: 8px;
+		}
+		input {
+			float: right;
+		}
+	}
+	#mail-input,
+	#mail-confirm {
+		background-color: $bgGreen;
+		border: 0;
+		padding: 14px;
+		width: 390px;
+		color: $textGreen;
+	}
+
+	#error-area {
+		height: 30px;
+		text-align: center;
+		color: $textGreen;
+	}
+	
+	@include adjust-font-size-to(16px, 1.5);
+	.inner {
+		padding: 40px 60px;
+		background-color: #FFF;
+	}
+
+	#apply-button {
+		margin: 0 auto 0;
+		padding-top: 15px;
+		width: 250px;
+		height: 80px;
+		a {
+			display: block;
+			background: url($imagePath + 'pc/enquete/complete/apply-button.png') 0 0 no-repeat;
+			width: 250px;
+			height: 80px;
+			@include hide-text(right);
+			@include ease-out-quint(140);
+			&:hover {
+				background: url($imagePath + 'pc/enquete/complete/apply-button-on.png') 0 0 no-repeat !important;
+			}
+		}
+		&.disabled {
+			background: url($imagePath + 'pc/enquete/complete/apply-button-none.png') 0 0 no-repeat;
+			a {
+				display: none;
+				cursor: default;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------
+* 応募要項エリア
+* --------------------------------------------------*/
+#agreement-area {
+	.inner {
+		height: 500px;
+		overflow-y: scroll;
+
+		p {
+			margin-top: 0;
+			@include adjust-font-size-to(14px, 1.1);
+		}
+		p.note {
+			margin: 0;
+			color: #999;
+			@include adjust-font-size-to(12px, 1);
+		}
+		a {
+			color: $textGreen;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		h4 {
+			margin: 0;
+			font-weight: bold;
+		}
+	}
+}
+
+/*--------------------------------------------------
+* シェアエリア
+* --------------------------------------------------*/
+#reply-share-area {
+	.inner {
+		padding: 40px 55px;
+		>p {
+			text-align: center;
+			margin: 0 auto 40px;
+			@include adjust-font-size-to(16px, 1.2);
+		}
+		#share-button-area {
+			@include clearfix();
+			a {
+				display: block;
+				width: 320px;
+				height: 80px;
+				@include border-radius(3px);
+				@include ease-out-quint(120);
+				p {
+					text-align: center;
+					padding-left: 30px;
+					letter-spacing: 0.1rem;
+					color: #FFF;
+					@include adjust-font-size-to(20px, 1);
+					margin: 28px 0;
+				}
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+			#share-fb {
+				float: left;
+				background: #537bbd url($imagePath + 'pc/enquete/complete/fb.png') 27px 25px no-repeat;
+			}
+			#share-tw {
+				float: right;
+				background: #78cdf0 url($imagePath + 'pc/enquete/complete/tw.png') 27px 25px no-repeat;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,32 @@
+{
+  "name": "TYO_TOM_ALOE20TH",
+  "version": "0.0.1",
+  "description": "Morinaga Aloe Yogurt 20th web site",
+  "homepage": "http://aloe.local.jp/",
+  "private": true,
+  "bugs": {
+    "url": "http://trac.tyo-id.jp/trac/aloe/",
+    "email": "tom@tyo-id.jp"
+  },
+  "repository": {
+    "type": "svn",
+    "url": "http://svn.tyo-id.jp/svn/aloe/"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tomoyuki Tada <tom@tyo-id.jp> (http://www.tyo-id.jp/)",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-compass-multiple": "^0.2.1",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-contrib-compass": "^0.9.0",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-imagemin": "^0.7.1",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

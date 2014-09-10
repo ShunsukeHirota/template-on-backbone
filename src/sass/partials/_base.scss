@@ -1,0 +1,159 @@
+$imagePath: '/assets/images/';
+$animationTime: 200;
+
+// This file must be imported before loading html5-boilerplate
+$legacy-support-for-ie: true;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie6: false;
+
+// base
+$line-height: 1.4 !default;
+$font-color: #000 !default;
+$link-color: #00e !default;
+$link-hover-color: #fa9927 !default;
+$link-visited-color: #551a8b !default;
+$selected-font-color: #fff !default;
+$selected-background-color: #ff5e99 !default;
+$invalid-background-color: #f0dddd !default;
+$baseWidth: 960px;
+$pcBGWidth: 1460px;
+$spBGWidth: 640px;
+
+//debug
+$bred: #ff0000 1px solid;
+$bblue: #0000ff 1px solid;
+$bgreen: #00ff00 1px solid;
+
+//Vertical Rhythm <http://liginc.co.jp/designer/archives/12071>
+$base-font-size: 16px;
+$base-line-height: 24px;
+@include establish-baseline;
+
+@mixin hoverAnimation($onImgPath, $sec: 0.2s) {
+	&:before {
+		background-image: image-url($onImgPath);
+	}
+	-o-transition: all $sec ease;
+	-ms-transition: all $sec ease;
+	-moz-transition: all $sec ease;
+	-webkit-transition: all $sec ease;
+	transition: all $sec ease;
+	&:hover {
+		background-image: image-url($onImgPath);
+	}
+}
+
+//if base font-size is 62.5%
+//@mixin fontSize($size) {
+//	font-size: $size + px;
+//	font-size: ($size / 10) + rem;
+//}
+
+@mixin unselectable() {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+@mixin ease-out-quint($ms, $delay: 0, $prop: all) {
+	-webkit-transition: $prop $ms +  ms cubic-bezier(0.230, 1.000, 0.320, 1.000) $delay + ms; 
+	-moz-transition: $prop $ms +  ms cubic-bezier(0.230, 1.000, 0.320, 1.000) $delay + ms; 
+	-ms-transition: $prop $ms +  ms cubic-bezier(0.230, 1.000, 0.320, 1.000) $delay + ms; 
+	-o-transition: $prop $ms +  ms cubic-bezier(0.230, 1.000, 0.320, 1.000) $delay + ms; 
+	transition: $prop $ms + ms cubic-bezier(0.230, 1.000, 0.320, 1.000) $delay + ms; /* easeOutQuint */
+}
+
+@mixin ease-in-quint($ms, $delay: 0, $prop: all) {
+	-webkit-transition: $prop $ms + ms cubic-bezier(0.755, 0.050, 0.855, 0.060) $delay + ms; 
+	-moz-transition: $prop $ms + ms cubic-bezier(0.755, 0.050, 0.855, 0.060) $delay + ms; 
+	-ms-transition: $prop $ms + ms cubic-bezier(0.755, 0.050, 0.855, 0.060) $delay + ms; 
+	-o-transition: $prop $ms + ms cubic-bezier(0.755, 0.050, 0.855, 0.060) $delay + ms; 
+	transition: $prop $ms + ms cubic-bezier(0.755, 0.050, 0.855, 0.060) $delay + ms; /* easeInQuint */
+}
+
+@mixin ease-in-out-quint($ms, $delay: 0, $prop: all) {
+	-webkit-transition: $prop $ms + ms cubic-bezier(0.860, 0.000, 0.070, 1.000) $delay + ms; 
+	-moz-transition: $prop $ms + ms cubic-bezier(0.860, 0.000, 0.070, 1.000) $delay + ms; 
+	-o-transition: $prop $ms + ms cubic-bezier(0.860, 0.000, 0.070, 1.000) $delay + ms;
+	transition: $prop $ms + ms cubic-bezier(0.860, 0.000, 0.070, 1.000) $delay + ms; /* easeInOutQuint */
+}
+
+@mixin ease-in-out-cubic($ms, $delay: 0, $prop: all) {
+	-webkit-transition: $prop $ms + ms cubic-bezier(0.645, 0.045, 0.355, 1.000) $delay + ms; 
+	-moz-transition: $prop $ms + ms cubic-bezier(0.645, 0.045, 0.355, 1.000) $delay + ms; 
+	-o-transition: $prop $ms + ms cubic-bezier(0.645, 0.045, 0.355, 1.000) $delay + ms; 
+	transition: $prop $ms + ms cubic-bezier(0.645, 0.045, 0.355, 1.000) $delay + ms; /* easeInOutCubic */
+}
+
+@mixin ease-out-expo($ms, $delay: 0, $prop: all) {
+	-webkit-transition: $prop $ms +  ms cubic-bezier(0.190, 1.000, 0.220, 1.000) $delay + ms; 
+	-moz-transition: $prop $ms +  ms cubic-bezier(0.190, 1.000, 0.220, 1.000) $delay + ms; 
+	-ms-transition: $prop $ms +  ms cubic-bezier(0.190, 1.000, 0.220, 1.000) $delay + ms; 
+	-o-transition: $prop $ms +  ms cubic-bezier(0.190, 1.000, 0.220, 1.000) $delay + ms; 
+	transition: $prop $ms + ms cubic-bezier(0.190, 1.000, 0.220, 1.000) $delay + ms; /* easeOutQuint */
+}
+
+@mixin ease-out-back($ms, $delay: 0, $prop: all) {
+	-webkit-transition: $prop $ms + ms cubic-bezier(0.175, 0.885, 0.320, 1) $delay + ms; /* older webkit */
+	-webkit-transition: $prop $ms + ms cubic-bezier(0.175, 0.885, 0.320, 1.275) $delay + ms; 
+	-moz-transition: $prop $ms + ms cubic-bezier(0.175, 0.885, 0.320, 1.275) $delay + ms; 
+	-ms-transition: $prop $ms + ms cubic-bezier(0.175, 0.885, 0.320, 1.275) $delay + ms; 
+	-o-transition: $prop $ms + ms cubic-bezier(0.175, 0.885, 0.320, 1.275) $delay + ms; 
+	transition: $prop $ms + ms cubic-bezier(0.175, 0.885, 0.320, 1.275) $delay + ms; /* easeOutBack */
+}
+
+@mixin spacergif() {
+	background: url('data:image/gif;base64,R0lGODlhZAAUAIAAAAD//wAAACH5BAEAAAAALAAAAABkABQAAAIshI+py+0Po5y02ouz3rz7D4biSJbmiabqyrbuC8fyTNf2jef6zvf+DwwKZwUAOw==') repeat 0 0;
+}
+
+@mixin animations ($name, $duration: 1s, $easing: ease-out-quint, $count: 1) {
+	-moz-animation-name: $name;
+	-moz-animation-duration: $duration;
+	-moz-animation-timing-function: $easing;
+	-moz-animation-iteration-count: $count;
+	
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-timing-function: $easing;
+	animation-iteration-count: $count;
+
+	-webkit-animation-name: $name;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-timing-function: $easing;
+	-webkit-animation-iteration-count: $count;
+
+	-o-animation-name: $name;
+	-o-animation-duration: $duration;
+	-o-animation-timing-function: $easing;
+	-o-animation-iteration-count: $count;
+
+	-ms-animation-name: $name;
+	-ms-animation-duration: $duration;
+	-ms-animation-timing-function: $easing;
+	-ms-animation-iteration-count: $count;
+}
+
+@mixin backgroundImageBox ($imagePath) {
+	display: block;
+	background-image: image-url($imagePath, false, true);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	width: image-width($imagePath);
+	height: image-height($imagePath);
+}
+/*---clearFix ------------------*/
+/** overflow:hiddenを使用しないclearfix  extendをして使用 */
+.clearfix:after{
+	content:url('data:image/gif;base64,R0lGODlhZAAUAIAAAAD//wAAACH5BAEAAAAALAAAAABkABQAAAIshI+py+0Po5y02ouz3rz7D4biSJbmiabqyrbuC8fyTNf2jef6zvf+DwwKZwUAOw==');
+	display:block;
+	clear:both;
+	height:0;
+	visibility: hidden;
+}
+.clearfix{
+	display:inline-block;
+	zoom: 100%;
+}
+.clearfix{
+	display:block;
+}

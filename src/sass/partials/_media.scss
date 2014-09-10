@@ -1,0 +1,28 @@
+// ==|== media queries ======================================================
+// PLACEHOLDER Media Queries for Responsive Design.
+// These override the primary ('mobile first') styles
+// Modify as content requires.
+// ========================================================================== */
+
+@media only screen and (max-width: 640px) {
+  /* Style adjustments for viewports 640px and under go here */
+	@import "sp_common";
+}
+
+@media only screen and (min-width: 641px) {
+	/* Style adjustments for viewports 641px and over go here */
+	@import "pc_common";
+}
+
+
+
+// ==|== print styles =======================================================
+// Print styles.
+// Inlined to avoid required HTTP connection: h5bp.com/r
+// ========================================================================== */
+
+@media print {
+  @include h5bp-media-print;
+  
+  /* Style adjustments for print go here */
+}

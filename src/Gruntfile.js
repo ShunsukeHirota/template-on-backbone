@@ -86,7 +86,7 @@ module.exports = function (grunt) {
 			},
 			/* coffee */
 			coffee: {
-				files: ['<%= path.src %>/**/*.scss'],
+				files: ['<%= path.src %>/**/*.coffee'],
 				tasks: ['coffee']
 			}
 		},

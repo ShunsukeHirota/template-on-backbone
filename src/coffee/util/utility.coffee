@@ -233,6 +233,15 @@ APP_NAME.util.utility = (->
         callback(to);
     , 24);
 
+  ###
+  スクロール量を取得
+  ###
+  exports.getScrolls = ->
+    scroll = {};
+    scroll.x = (if (window.pageXOffset isnt `undefined`) then window.pageXOffset else (document.documentElement or document.body.parentNode or document.body).scrollLeft)
+    scroll.y = (if (window.pageYOffset isnt `undefined`) then window.pageYOffset else (document.documentElement or document.body.parentNode or document.body).scrollTop)
+    return scroll;
+
 
   # ------------------------------------------------------------
   #    * Cookie

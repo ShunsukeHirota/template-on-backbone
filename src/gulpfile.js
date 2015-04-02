@@ -6,10 +6,11 @@ var $ = require('gulp-load-plugins')({
 });
 
 var path = {
-	bower: '../bower_components/',
+	bower: './bower_components/',
 	js: '../htdocs/assets/javascripts/',
 	coffee: 'coffee/',
-	libroot: '../htdocs/assets/javascripts/lib/',
+	libroot: './javascripts/lib/',
+	lidest: '../htdocs/assets/javascripts/lib/',
 	scss: 'sass/',
 	css: '../htdocs/assets/stylesheets/',
 	image: '../htdocs/assets/images/',
@@ -22,7 +23,8 @@ var coffeeBase = {
 			path.coffee + 'app.coffee',
 			path.coffee + 'common/config.coffee',
 			path.coffee + 'util/utility.coffee',
-			path.coffee + 'common/common.coffee'
+			path.coffee + 'common/common.coffee',
+			path.coffee + 'view/base.coffee'
 		]
 	}
 }
@@ -59,7 +61,7 @@ gulp.task('libs', function () {
 		path.libroot + 'jquery.backgroundsize.js'])
 		.pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
 		.pipe($.concat('libs.js'))
-		.pipe(gulp.dest(path.libroot));
+		.pipe(gulp.dest(path.libdest));
 });
 
 /**----------------------------------------
@@ -70,12 +72,11 @@ gulp.task('coffeeIndex', function () {
 			path.coffee + 'view/report.coffee',
 			path.coffee + 'main/indexmain.coffee'
 		]))
+		.pipe($.plumber({errorHandler: $.notify.onError("<%= error %>")}))
 		.pipe($.coffee({
 			bare: true
 		}))
 		.pipe($.concat('index.js'))
-		//.pipe($.uglify('index.js'))
-		.pipe($.plumber({errorHandler: $.notify.onError("<%= error.message %>")}))
 		.pipe(gulp.dest(path.js))
 });
 

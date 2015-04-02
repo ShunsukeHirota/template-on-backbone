@@ -4,7 +4,8 @@ require 'html5-boilerplate'
 require 'susy'
 
 # Set this to the root of your project when deployed:
-environment = :product
+environment = :development
+#:product
 firesass = false
 project_type = :stand_alone
 http_path = "/"
@@ -25,7 +26,7 @@ relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
-line_comments = false
+line_comments = (environment == :development) ? true : false
 
 
 # If you prefer the indented syntax, you might want to regenerate this

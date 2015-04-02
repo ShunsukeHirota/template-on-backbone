@@ -1,4 +1,89 @@
 // font-face fonts
 // see http://compass-style.org/docs/reference/compass/css3/font_face/
 
-//@import "compass/css3/font-face"
+
+@font-face {
+	font-family: "snsicon";
+	src:url("/assets/fonts/snsicon/snsicon.eot");
+	src:url("/assets/fonts/snsicon/snsicon.eot?#iefix") format("embedded-opentype"),
+		url("/assets/fonts/snsicon/snsicon.ttf") format("truetype"),
+		url("/assets/fonts/snsicon/snsicon.svg#snsicon") format("svg"),
+		url("/assets/fonts/snsicon/snsicon.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "snsicon" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="sns-"]:before,
+[class*=" sns-"]:before {
+  font-family: "snsicon" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sns-twitter-2:before {
+  font-family: "snsicon";
+  content: "t";
+}
+.sns-facebook-square1:before {
+  content: "f";
+  font-family: "snsicon";
+}
+.sns-twitter-1:before {
+  content: "T";
+  font-family: "snsicon";
+}
+.sns-facebook-square2:before {
+  content: "F";
+  font-family: "snsicon";
+}
+.sns-facebook-square3:before {
+  content: "s";
+  font-family: "snsicon";
+}
+.sns-tyo:before {
+  content: "a";
+  font-family: "snsicon";
+}
+.sns-op-arrow-right:before {
+  content: "b";
+  font-family: "snsicon";
+}
+.sns-cross:before {
+  content: "c";
+  font-family: "snsicon";
+}
+.sns-op-arrow-down:before {
+  content: "d";
+  font-family: "snsicon";
+}
+.sns-op-arrow-left:before {
+  content: "e";
+  font-family: "snsicon";
+}
+.sns-plus:before {
+  content: "g";
+  font-family: "snsicon";
+}
+.sns-plus-1:before {
+  content: "h";
+  font-family: "snsicon";
+}
